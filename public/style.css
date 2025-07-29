@@ -382,3 +382,96 @@ form button:hover {
 .back-link:hover {
   text-decoration: underline;
 }
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  #linenav {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  .headline-container {
+    margin: 20px auto;
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .headline-text {
+    font-size: 1.3rem;
+  }
+
+  .form-guidelines-wrapper {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  form, .guidelines {
+    width: 100%;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+  }
+
+  .clips-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left, .footer-right {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .footer-links li {
+    margin-bottom: 6px;
+  }
+
+  .footer-logo {
+    font-size: 1.4rem;
+  }
+
+  form input,
+  form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  form h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .guidelines h3 {
+    font-size: 1.2rem;
+  }
+
+  .guidelines ol li {
+    font-size: 0.95rem;
+  }
+}
