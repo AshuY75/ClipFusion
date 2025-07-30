@@ -1,50 +1,6 @@
-const lines = [
-  "Turn Moments Into Viral Reels",
-  "Cut Your Podcast Into YouTube Shorts",
-  "Boost Engagement With Short Clips",
-  "ClipFusion Makes Editing Effortless",
-];
-
-let currentIndex = 0;
-const rotatingText = document.getElementById("rotating-text");
-
-function showNextLine() {
-  rotatingText.classList.remove("fade-in");
-  rotatingText.classList.add("fade-out");
-
-  setTimeout(() => {
-    rotatingText.textContent = lines[currentIndex];
-    rotatingText.classList.remove("fade-out");
-    rotatingText.classList.add("fade-in");
-    currentIndex = (currentIndex + 1) % lines.length;
-  }, 1000);
-}
-
-window.onload = () => {
-  rotatingText.textContent = lines[currentIndex];
-  rotatingText.classList.add("fade-in");
-  currentIndex++;
-  setInterval(showNextLine, 3000);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Rotating headline animation
+// ===============================
+// 🔁 Rotating Headline Animation
+// ===============================
 const lines = [
   "Turn Moments Into Viral Reels",
   "Cut Your Podcast Into YouTube Shorts",
@@ -75,11 +31,16 @@ window.onload = () => {
 };
 
 // ===============================
-// ✅ Video Upload Logic
+// 📤 Video Upload Logic
 // ===============================
 const form = document.getElementById("upload-form");
 const fileInput = document.getElementById("video-input");
 const statusBox = document.getElementById("status");
+const loadingScreen = document.getElementById("loading-screen");
+const timerText = document.getElementById("timer");
+
+let seconds = 0;
+let timerInterval;
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -91,9 +52,16 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  statusBox.innerText = "Uploading and processing video...";
-  statusBox.style.color = "blue";
+  // Show loading screen and timer
+  loadingScreen.style.display = "flex";
+  seconds = 0;
+  timerText.textContent = "Time elapsed: 0s";
+  timerInterval = setInterval(() => {
+    seconds++;
+    timerText.textContent = `Time elapsed: ${seconds}s`;
+  }, 1000);
 
+  // Upload file
   const formData = new FormData();
   formData.append("video", file);
 
@@ -105,11 +73,14 @@ form.addEventListener("submit", async (e) => {
 
     const result = await response.json();
 
+    clearInterval(timerInterval);
+    loadingScreen.style.display = "none";
+
     if (response.ok) {
       statusBox.innerText = `Success: ${result.message}`;
       statusBox.style.color = "green";
 
-      // Optionally show processed video URL
+      // Optional download link
       if (result.videoUrl) {
         const videoLink = document.createElement("a");
         videoLink.href = result.videoUrl;
@@ -123,48 +94,10 @@ form.addEventListener("submit", async (e) => {
       statusBox.style.color = "red";
     }
   } catch (err) {
+    clearInterval(timerInterval);
+    loadingScreen.style.display = "none";
     console.error(err);
     statusBox.innerText = "Server error while processing video.";
     statusBox.style.color = "red";
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-const form = document.querySelector(".upload-form");
-const loadingScreen = document.getElementById("loading-screen");
-const timerText = document.getElementById("timer");
-
-let seconds = 0;
-let timerInterval;
-
-form.addEventListener("submit", () => {
-  loadingScreen.style.display = "flex";
-  seconds = 0;
-  timerText.textContent = "Time elapsed: 0s";
-  timerInterval = setInterval(() => {
-    seconds++;
-    timerText.textContent = `Time elapsed: ${seconds}s`;
-  }, 1000);
-});
-
-
-
-
-
-
-
-
-
-
-
-
