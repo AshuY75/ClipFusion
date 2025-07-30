@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="StEtyUU1L8laimWJiNL0rZzhTUaHHkhMrRHGG92-Q00" />
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
@@ -19,7 +18,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo animated-logo">ClipFusion</div>
-    <div class="logo animated-logo" id="linenav" >Make Your Profile Viral</div>
+    <div class="logo animated-logo" id="linenav">Make Your Profile Viral</div>
   </nav>
 
   <!-- Rotating Headline -->
@@ -30,119 +29,100 @@
   <!-- Form + Guidelines -->
   <div class="form-guidelines-wrapper">
 
- <!-- Upload Form -->
-  <form action="/process-video" method="POST" enctype="multipart/form-data" class="upload-form">
+    <!-- Upload Form -->
+    <form action="/process-video" method="POST" enctype="multipart/form-data" class="upload-form" id="videoForm">
+      <h2>Upload Video</h2>
 
-  <h2>Upload Video</h2>
+      <label>Upload Video:</label>
+      <input type="file" name="video" accept="video/*" required /><br><br>
 
-  <label>Upload Video:</label>
-  <input type="file" name="video" accept="video/*" required /><br><br>
+      <label>Video Width:</label>
+      <input type="number" name="width" value="720" required /><br><br>
 
-  <label>Video Width:</label>
-  <input type="number" name="width" value="720" required /><br><br>
+      <label>Final Canvas Height:</label>
+      <input type="number" name="final_height" value="1350" required /><br><br>
 
-  <label>Final Canvas Height:</label>
-  <input type="number" name="final_height" value="1350" required /><br><br>
+      <label>Video Display Height:</label>
+      <input type="number" name="video_height" value="1250" required /><br><br>
 
-  <label>Video Display Height:</label>
-  <input type="number" name="video_height" value="1250" required /><br><br>
+      <label>Title Text:</label>
+      <input type="text" name="movie_name" placeholder="e.g., Cine Blitz Clip" required /><br><br>
 
-  <label>Title Text:</label>
-  <input type="text" name="movie_name" placeholder="e.g., Cine Blitz Clip" required /><br><br>
+      <label>Split Duration (seconds):</label>
+      <input type="number" name="segment_time" value="45" required /><br><br>
 
-  <label>Split Duration (seconds):</label>
-  <input type="number" name="segment_time" value="45" required /><br><br>
+      <progress id="uploadProgress" value="0" max="100" style="display:none; width:100%;"></progress>
+      <br><br>
 
-  <button type="submit">Process Video</button>
-</form>
-
+      <button type="submit">Process Video</button>
+    </form>
 
     <!-- Guidelines -->
     <div class="guidelines">
       <div>
-      <h3>How to Convert Video into Shorts</h3>
-      <ol>
-        <li>Select your long video.</li>
-        <li>Enter the video width and final canvas height.</li>
-        <li>Enter the video display height.</li>
-        <li>Enter The title </li>
-        <li>Select Duration</li>
-        <li>Click on "Process Video".</li>
-        <li>Our system cuts it into short clips.</li>
-        <li>Download your optimized Reels/Shorts.</li>
-        <li>Post directly to Instagram or YouTube.</li>
-      </ol>
-    </div>
-  
-    <div class="user-clips">
-  <h4>See Clips Made by Our Users</h4>
-  <div class="clips-grid">
-    <!-- Example videos (replace `src` with actual video URLs) -->
-<!-- Thumbnail 1 -->
-<a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
-  <img src="https://i.postimg.cc/rwk6pSXd/Chat-GPT-Image-Jul-26-2025-04-56-43-PM.png" 
-       alt="Video Preview" 
-       style="width:100%; max-width:400px; margin: 10px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
-</a>
+        <h3>How to Convert Video into Shorts</h3>
+        <ol>
+          <li>Select your long video.</li>
+          <li>Enter the video width and final canvas height.</li>
+          <li>Enter the video display height.</li>
+          <li>Enter the title.</li>
+          <li>Select duration.</li>
+          <li>Click on "Process Video".</li>
+          <li>Our system cuts it into short clips.</li>
+          <li>Download your optimized Reels/Shorts.</li>
+          <li>Post directly to Instagram or YouTube.</li>
+        </ol>
+      </div>
 
-<!-- Thumbnail 2 -->
-<a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
-  <img src="https://i.postimg.cc/3NfMR6hY/image.png" 
-       alt="Video Preview" 
-       style="width:100%; max-width:400px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
-</a>
+      <div class="user-clips">
+        <h4>See Clips Made by Our Users</h4>
+        <div class="clips-grid">
+          <a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
+            <img src="https://i.postimg.cc/rwk6pSXd/Chat-GPT-Image-Jul-26-2025-04-56-43-PM.png"
+              alt="Video Preview"
+              style="width:100%; max-width:400px; margin: 10px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
+          </a>
 
+          <a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
+            <img src="https://i.postimg.cc/3NfMR6hY/image.png"
+              alt="Video Preview"
+              style="width:100%; max-width:400px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
+          </a>
 
-<!-- Thumbnail 3 -->
-<a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
-  <img src="https://i.postimg.cc/3NfMR6hY/image.png" 
-       alt="Video Preview" 
-       style="width:100%; max-width:400px; margin: 10px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
-</a>
-
-  </div>
-</div>
-  
-  
-  
-  
-  </div>
-  </div>
-
-  <!-- Footer -->
-  <!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <h3 class="footer-logo">ClipFusion</h3>
-      <p>&copy; 2025 ClipFusion. All rights reserved.</p>
-    </div>
-
-    <div class="footer-right">
-      <ul class="footer-links">
-        <li><a href="#">Terms & Conditions</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
+          <a href="https://drive.google.com/file/d/1j05bHxxzqttMVMdDv4ShjcA-nibRNsLT/view" target="_blank">
+            <img src="https://i.postimg.cc/3NfMR6hY/image.png"
+              alt="Video Preview"
+              style="width:100%; max-width:400px; margin: 10px; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" />
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-</footer>
 
-
-
-
- 
-
+  <!-- Loader -->
   <div id="loader-container" style="display:none;">
-  <div class="loader"></div>
-  <p id="loader-timer">Processing: 0:00 / ~1:24</p>
-</div>
+    <div class="loader"></div>
+    <p id="loader-timer">Processing: 0:00 / ~1:24</p>
+  </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <h3 class="footer-logo">ClipFusion</h3>
+        <p>&copy; 2025 ClipFusion. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
- <script src="script.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
